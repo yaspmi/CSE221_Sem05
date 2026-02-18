@@ -2,21 +2,38 @@
 using namespace std;
 
 int findSqrt(int n);
+int findSqrt_f(int n);
 
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    int x=36;
-    int res=findSqrt(x);
-    cout<<"The square root of "<<x<<" is "<<res<<"\n";
+    
+    int testCases[] = {0, -16, 1, 10, 36};
+    int n = sizeof(testCases) / sizeof(testCases[0]);
+    
+    for(int i = 0; i < n; i++){
+        int x = testCases[i];
+        int res = findSqrt(x);
+        cout << "The square root of " << x << " is " << res << "\n";
+    }
+
+     for(int i = 0; i < n; i++){
+        int x = testCases[i];
+        int res = findSqrt_f(x);
+        cout << "The square root of " << x << " is " << res << "\n";
+    }
+    
     return 0;
 }
+
+//my code
+//Time complexity : O(logn)
 
 int findSqrt(int n){
 
     if(n<0) return -1;
     if(n==0) return 0;
-    
+
     int l=0;
     int h=n;
     int result=-1; 
@@ -31,4 +48,16 @@ int findSqrt(int n){
         }
     }
     return result;
+}
+
+//my friend's code
+//Time Complexity O(n)
+
+int findSqrt_f(int n){
+    int res=-1;
+    for(int i=0; i<=n; i++){
+        if(i*i==n) return i;
+        else if (i*i<n) res=i;
+    }
+    return res;
 }
