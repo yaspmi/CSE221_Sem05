@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int findFirstOccurence(vector<int>& arr);
 vector<int> arrange_numbers(vector<int> arr);
 int main(){
     ios::sync_with_stdio(false);
@@ -10,6 +11,9 @@ int main(){
     for(int i: res){
         cout<<i<<" ";
     }
+    cout <<"\n";
+    cout<<findFirstOccurence(res)<<"\n";
+    return 0;
 }
 
 vector<int> arrange_numbers(vector<int> arr){
@@ -33,4 +37,20 @@ vector<int> arrange_numbers(vector<int> arr){
        }
     }
     return arr;
+}
+
+int findFirstOccurence(vector<int>& arr){
+    int l=0;
+    int h=arr.size()-1;
+    int res=-1;
+
+    while(l<=h){
+        int mid=l+(h-l)/2;
+        if(arr[mid]<0) l=mid+1;
+        else if (arr[mid]>0){
+            res=mid;
+            h=mid-1;
+        }
+    }
+    return res;
 }
