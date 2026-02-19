@@ -31,10 +31,12 @@ vector<int> arrange_numbers(vector<int> arr){
         left++;
        }
 
-       else if(arr[right]<0){
-        swap(arr[left], arr[right]);
-        right--;
-       }
+    //bcz of prev block this block won't run at all
+    //    else if(arr[right]<0){
+    //     swap(arr[left], arr[right]);
+    //     right--;
+    //    }
+    
     }
     return arr;
 }
