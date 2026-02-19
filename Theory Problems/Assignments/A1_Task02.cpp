@@ -6,7 +6,7 @@ int find_min_Element(vector<int> arr);
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    vector<int> arr={ 4 ,5 ,6,-1, 0 ,1 ,2 ,3};
+    vector<int> arr={1, 2, 3, 4, 0};
     //  
     //1 2 3 4 0
     // 4 0 1 2 3
@@ -28,9 +28,8 @@ int find_min_Element(vector<int> arr){
 
         if(arr[mid]<arr[h]) h=mid;
         else if(arr[mid]>arr[h]) l=mid+1;
-        else if(arr[mid]==arr[l] || arr[mid]==arr[h]) return arr[mid];
+
     }
-    else if (l==h) return arr[l];
     else return arr[l];
     }
 
