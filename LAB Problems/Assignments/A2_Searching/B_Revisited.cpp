@@ -25,15 +25,21 @@ int main(){
     }
     
     int i = 0, j = M - 1;
+
     long long closest_diff = LLONG_MAX;
-    int closest_i = 0, closest_j = 0;
-    while (i < N && j >= 0){
+
+    int best_i = 0, best_j = 0;
+
+
+    while (i < N && j >= 0){ //N+M
+
         long long sum = A[i] + B[j];
         long long diff = llabs(sum - K);
+
         if (diff < closest_diff){
             closest_diff = diff;
-            closest_i = i;
-            closest_j = j;
+            best_i = i;
+            best_j = j;
         }
 
         if (sum > K){
@@ -45,7 +51,7 @@ int main(){
         }
     }
 
-    cout << closest_i + 1 << " " << closest_j + 1 << "\n";
+    cout << best_i + 1 << " " << best_j + 1 << "\n";
     return 0;
 
 }
