@@ -8,35 +8,40 @@ int main(){
     ifstream fin("input.txt");
     ofstream fout("output.txt");
 
-    int n;
-    long long x;
-
-    fin>>n>>x;
+    int N;
+    fin>>N;
+    vector<int>A(N);
+    for(int i=0; i<N; i++){
+        fin>>A[i];
+    }
     
-    using pii=pair<int, int>;
-
-    vector<pii> A(n);
-
-    for(int i=0; i<n; i++){
-        fin>>A[i].first;
-        A[i].second=i;
+    int M;
+    fin>>M;
+    vector<int>B(M);
+    for(int i=0; i<M; i++){
+       fin>>B[i];
     }
-    sort(A.begin(), A.end());
+     
+    if(A.empty()||B.empty()) return -1;
+    //Now A and B sorted array are ready. Need to merge.
 
-
-    for(int k=0; k<n-2; k++){
-        int i=k+1;
-        int j=n-1;
-        while(i<j){
-          long long sum=A[k].first+A[i].first+A[j].first;
-          if(sum<x) i++;
-          else if(sum>x) j--;
-          else if(sum==x) {
-            fout << A[k].second+1<<" "<<A[i].second+1<<" "<<A[j].second+1<<"\n";
-            return 0;
-          }
-        }
+    int i=0, j=0;
+    vector<int> C(N+M);
+    for(int k=0; k<N+M; k++){
+        
+       if(A[i]<B[j]){
+         C[k]=A[i];
+         i++;
+       }
+       else if(A[i]>B[j]){
+        C[k]=B[j];
+        j++;
+       }
+       k++;
     }
-    fout<<-1<<"\n";
+
+
+    fout<<"\n";
+
     return 0;
-}
+    }
