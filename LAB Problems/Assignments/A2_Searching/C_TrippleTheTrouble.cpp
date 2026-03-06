@@ -17,9 +17,9 @@ int main (){
         A[i] = {a, i+1};
     }
 
-    sort(A.begin(), A.end());
+    sort(A.begin(), A.end()); //must sort as we can't detect for an unsorted array
     
-    for (int k = 0; k<n-2; k++){
+    for (int k = 0; k<n-2; k++){  //basically two sum in a loop and k moves till n-3 to allocate i and j
         int i = k + 1, j = n - 1;
         while (i<j){
             long long sum = A[i].first + A[j].first + A[k].first;
