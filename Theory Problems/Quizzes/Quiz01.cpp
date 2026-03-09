@@ -26,5 +26,4 @@ int main(){
     }
     cout<<A[l];
     return 0;
-
 }
