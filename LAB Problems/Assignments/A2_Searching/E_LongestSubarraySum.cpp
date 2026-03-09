@@ -14,7 +14,7 @@ int main(){
     long long sum = 0;
     int longest_count=0;
     int j=0;
-    for(int i=0; i<N && j<N; i++){
+    for(int i=0; i<N; i++){
             sum += A[i];
             while (sum>K&&j<=i){
                 sum -= A[j];
