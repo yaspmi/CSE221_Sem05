@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> merge_two_arr(vector<int>&a, vector<int>&b);
+vector<int> merge_two_arr(const vector<int>&a, const vector<int>&b);
 vector<int> merge_sort(vector<int>&A, int l, int r);
 int main(){
     ios::sync_with_stdio(false);
@@ -13,13 +13,18 @@ int main(){
     for(int i=0; i<x; i++){
         cin>>A[i];
     }
+    if (x == 0) {
+        cout << "\n";
+        return 0;
+    }
+
     A=merge_sort(A,0,x-1);
     for(auto i: A) cout<<i<<" ";
     cout<<"\n";
 return 0;
 }
 
-vector<int> merge_two_arr(vector<int>&a, vector<int>&b){
+vector<int> merge_two_arr(const vector<int>&a, const vector<int>&b){
     int n=a.size();
     int m=b.size();
 
