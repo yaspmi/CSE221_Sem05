@@ -43,7 +43,8 @@ vector<int> mergeArrays(const vector<int>&a, const vector<int>&b){
 }
 
 vector<int> merSort(const vector<int>&A, int l, int r){
-    if(l>=r) return vector<int>{A[l]};
+    if(l > r) return {};
+    if(l == r) return vector<int>{A[l]};
     int mid= (l+r)/2;
     return mergeArrays(merSort(A, l, mid), merSort(A, mid+1, r));      
 }
